@@ -1,0 +1,42 @@
+task :move do
+
+  files '.jpg', '.png', '.bmp' if has 'vacations'
+  files '.avi' if are '.sub'
+
+  from 'home/fotos', 'home/donwloads'
+  from 'home/descktop' if has 'backup'
+
+  to 'home/usr/bazoora'
+
+end
+
+task :copy do
+
+  files '.jpg', '.png', '.bmp' if has 'vacations'
+
+  folders '2011'
+
+  from 'home/fotos', 'home/donwloads' do
+    rename /vacations/, /2011-vac-/
+  end
+  from 'home/descktop' if has 'backup'
+
+
+  to 'home/usr/bazoora'
+
+end
+
+task :move, :recursive => :tree do 
+# options for: :recursive => 
+#     :tree : copy or move recursively recreating the same tree structure in the target directory
+#     :plain : copy or move recursively to the target directory
+
+  files '.jpg', '.png', '.bmp' if has 'vacations'
+  files '.avi' if are('.sub', :smart) # :smart look if the .sub (in this case) have the same name that .avi (in this case)
+
+  from 'home/fotos', 'home/donwloads'
+  from 'home/descktop' if has 'backup'
+
+  to 'home/usr/bazoora'
+
+end
