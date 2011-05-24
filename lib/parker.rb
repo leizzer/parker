@@ -34,14 +34,27 @@ module Parker
 
 ### Files
   class File
-    def initialize extentions
-      @files = get_files extentions
+    def initialize *extentions, checks
+      @files = get_files extentions, checks
     end
 
     # Use Dir.glob for get the list of files
-    def get_files extentions
-      
+    def get_files extentions, checks
+      #search for files and discard with the checks
     end
+    
+    private
+      def having
+        
+      end
+      
+      def existing
+        
+      end
+      
+      def existing_the
+        
+      end
   end
 
   class Folder < File
@@ -67,13 +80,4 @@ module Parker
     t
   end
 
-  def has options
-    #nothing yet
-        
-  end
-
-  def are options
-    #nothing yet
-
-  end
 end
